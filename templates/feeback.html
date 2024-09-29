@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home - BHAVANA Bot</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+    
+        <!-- Video Background -->
+        <div class="video-background-container">
+            <video autoplay muted loop>
+                <source src="{{ url_for('static', filename='images/Dark Background Web.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    
+        <!-- Gradient Overlay -->
+        <div class="gradient-overlay"></div>
+    
+        <!-- Navbar -->
+        <header>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="BHAVANA Bot" class="logo">
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li>
+                        <a href="/about">About</a>
+                        <ul>
+                            <li><a href="our-mission.html">Our Mission</a></li>
+                            <li><a href="team.html">Our Team</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/bhavana">Try Bhavana</a></li>
+                    <li><a href="/self_assessment">Self Assessment</a></li>
+                    <li><a href="/articles">Articles</a></li>
+                    {% if 'username' in session %}
+                        <li><a href="/logout">Logout</a></li>
+                    {% else %}
+                        <li><a href="/login_signup">Login</a></li>
+                    {% endif %}
+                </ul>
+            </nav>   
+        </header>
+    <div class="content-section">
+        <h1>Feedback</h1>
+        <p>Your feedback is valuable to us. Please share your thoughts and suggestions.</p>
+
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea>
+
+             <!-- Star Rating -->
+        <div class="rating">
+            <label for="rateus"></label>
+            <input type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+            <input type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+            <input type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+            <input type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+            <input type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+            <style>
+                /* Add the star rating styles */
+                .rating {
+                    display: flex;
+                    direction: rtl;
+                    font-size: 2em;
+                    justify-content: center;
+                }
+        
+                .rating input[type="radio"] {
+                    display: none;
+                }
+        
+                .rating label {
+                    cursor: pointer;
+                    color: lightgray;
+                    font-size: 18px
+                }
+        
+                .rating input[type="radio"]:checked ~ label {
+                    color: gold;
+                }
+        
+                .rating label:hover,
+                .rating label:hover ~ label {
+                    color: gold;
+                }
+
+                
+            </style>
+        </div>
+
+            <button type="submit" class="btn">Submit</button>
+
+           
+  
+        
+       
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 BHAVANA Bot. All rights reserved.</p>
+            <p>Contact us at <a href="mailto:support@bhavanabot.com">support@bhavanabot.com</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

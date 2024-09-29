@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anxiety Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background: #222;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #ddd;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option {
+            margin-bottom: 5px;
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .result, .doctors, .thankyou {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #444;
+            border-radius: 4px;
+        }
+
+        .result {
+            background: #333;
+        }
+
+        .doctors {
+            background: #222;
+        }
+
+        .thankyou {
+            background: #444;
+        }
+
+        .doctor-item {
+            margin-bottom: 15px;
+        }
+
+        .doctor-item a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+
+        .doctor-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Anxiety Questionnaire</h1>
+        <form id="questionnaire-form">
+            <div class="question">
+                <label for="q1">1. I find it very hard to unwind, relax or sit still</label>
+                <select id="q1" name="q1">
+                    <option value="a">Never</option>
+                    <option value="b">Almost Never</option>
+                    <option value="c">Sometimes</option>
+                    <option value="d">Fairly Often</option>
+                    <option value="e">Very Often</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q2">2. I have had stomach problems, such as feeling sick or stomach cramps</label>
+                <select id="q2" name="q2">
+                    <option value="a">Never</option>
+                    <option value="b">Almost Never</option>
+                    <option value="c">Sometimes</option>
+                    <option value="d">Fairly Often</option>
+                    <option value="e">Very Often</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q3">3. I have been irritable and easily become annoyed</label>
+                <select id="q3" name="q3">
+                    <option value="a">Never</option>
+                    <option value="b">Almost Never</option>
+                    <option value="c">Sometimes</option>
+                    <option value="d">Fairly Often</option>
+                    <option value="e">Very Often</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q4">4. I have experienced shortness of breath</label>
+                <select id="q4" name="q4">
+                    <option value="a">Never</option>
+                    <option value="b">Almost Never</option>
+                    <option value="c">Sometimes</option>
+                    <option value="d">Fairly Often</option>
+                    <option value="e">Very Often</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q5">5. I have felt dizzy and unsteady at times</label>
+                <select id="q5" name="q5">
+                    <option value="a">Never</option>
+                    <option value="b">Almost Never</option>
+                    <option value="c">Sometimes</option>
+                    <option value="d">Fairly Often</option>
+                    <option value="e">Very Often</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q6">6. I have had difficulties with sleep (including waking early, finding it hard to go to sleep)</label>
+                <select id="q6" name="q6">
+                    <option value="a">Never</option>
+                    <option value="b">Almost Never</option>
+                    <option value="c">Sometimes</option>
+                    <option value="d">Fairly Often</option>
+                    <option value="e">Very Often</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q7">7. I have felt panicked and overwhelmed by things in my life</label>
+                <select id="q7" name="q7">
+                    <option value="a">Never</option>
+                    <option value="b">Almost Never</option>
+                    <option value="c">Sometimes</option>
+                    <option value="d">Fairly Often</option>
+                    <option value="e">Very Often</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q8">8. I have felt nervous and on edge</label>
+                <select id="q8" name="q8">
+                    <option value="a">Never</option>
+                    <option value="b">Almost Never</option>
+                    <option value="c">Sometimes</option>
+                    <option value="d">Fairly Often</option>
+                    <option value="e">Very Often</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q9">9. I have had trembling hands</label>
+                <select id="q9" name="q9">
+                    <option value="a">Never</option>
+                    <option value="b">Almost Never</option>
+                    <option value="c">Sometimes</option>
+                    <option value="d">Fairly Often</option>
+                    <option value="e">Very Often</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q10">10. I seem to be constantly worrying about things</label>
+                <select id="q10" name="q10">
+                    <option value="a">Never</option>
+                    <option value="b">Almost Never</option>
+                    <option value="c">Sometimes</option>
+                    <option value="d">Fairly Often</option>
+                    <option value="e">Very Often</option>
+                </select>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result" class="result"></div>
+        <div id="doctors" class="doctors" style="display: none;">
+            <h2>Recommended Doctors</h2>
+            <div class="doctor-item">
+                <p><strong>Dr. Ahmed Reshamvala</strong></p>
+                <p>Phone: 912071171501</p>
+                <p><a href="https://maps.app.goo.gl/ZYqTPhM9eyso9g2d7" target="_blank">Location</a></p>
+                <p>Experience: 1+ years</p>
+            </div>
+            <div class="doctor-item">
+                <p><strong>Dr. Dhruva Ithal</strong></p>
+                <p>Phone: 912071171501</p>
+                <p><a href="https://maps.app.goo.gl/eKrNHPcJfe3LK1pc6" target="_blank">Location</a></p>
+                <p>Experience: 11+ years</p>
+            </div>
+            <div class="doctor-item">
+                <p><strong>Dr. Anand Jayaraman</strong></p>
+                <p>Phone: 918071966822</p>
+                <p><a href="https://g.co/kgs/CmsYz8R" target="_blank">Location</a></p>
+                <p>Experience: 27 years</p>
+            </div>
+            <div class="doctor-item">
+                <p><strong>Dr. Harsha GT</strong></p>
+                <p>Phone: 919513610115</p>
+                <p><a href="https://maps.app.goo.gl/UZcvr8Adb9hyU6HT6" target="_blank">Location</a></p>
+                <p>Experience: 4 years</p>
+            </div>
+        </div>
+        <div id="thankyou" class="thankyou" style="display: none;">
+            <h2>Thank You!</h2>
+            <p>Your responses have been recorded.</p>
+        </div>
+    </div>
+
+    <script>
+        const scoring = {
+            'a': 0,
+            'b': 1,
+            'c': 2,
+            'd': 3,
+            'e': 4
+        };
+
+        const anxietyLevels = [
+            { level: "Low to Mild Anxiety", min: 0, max: 4 },
+            { level: "Mild Anxiety", min: 5, max: 9 },
+            { level: "Moderate Anxiety", min: 10, max: 14 },
+            { level: "Severe Anxiety", min: 15, max: 19 },
+            { level: "Extremely Severe Anxiety", min: 20, max: 40 }
+        ];
+
+        document.getElementById('questionnaire-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let totalScore = 0;
+
+            for (let i = 1; i <= 10; i++) {
+                const selectedOption = document.getElementById('q' + i).value;
+                totalScore += scoring[selectedOption];
+            }
+
+            let anxietyLevel = "";
+            for (let level of anxietyLevels) {
+                if (totalScore >= level.min && totalScore <= level.max) {
+                    anxietyLevel = level.level;
+                    break;
+                }
+            }
+
+            document.getElementById('result').textContent = `Your anxiety level is: ${anxietyLevel}. Your total score is: ${totalScore}`;
+
+            if (anxietyLevel !== "Low to Mild Anxiety") {
+                document.getElementById('doctors').style.display = 'block';
+            } else {
+                document.getElementById('doctors').style.display = 'none';
+            }
+
+            document.getElementById('thankyou').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

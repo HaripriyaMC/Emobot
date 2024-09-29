@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - BHAVANA Bot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Video Background -->
+    <div class="video-background-container">
+        <video autoplay muted loop>
+            <source src="{{ url_for('static', filename='images/Dark Background Web.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Gradient Overlay -->
+    <div class="gradient-overlay"></div>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="BHAVANA Bot" class="logo">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li>
+                    <a href="/about">About</a>
+                    <ul>
+                        <li><a href="#mission">Our Mission</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#feedback">Feedback</a></li>
+                    </ul>
+                </li>
+                <li><a href="/bhavana">Try Bhavana</a></li>
+                <li><a href="/self_assessment">Self Assessment</a></li>
+                <li><a href="/articles">Articles</a></li>
+                {% if 'username' in session %}
+                    <li><a href="/logout">Logout</a></li>
+                {% else %}
+                    <li><a href="/login_signup">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>   
+    </header>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="info-card">
+            <div class="image-content">
+                <img src="{{ url_for('static', filename='images/botgif.gif') }}" alt="BHAVANA Bot GIF" class="moving-gif">
+            </div>
+            <div class="text-content">
+                <h1>Welcome to BHAVANA Bot</h1>
+            <center>    <p>Your partner in emotional well-being.</p>
+                <center><a href="about.html" class="cta-button">Learn More</a> </center>
+                <p>
+                    Welcome to a new era of support where your emotions are understood and cared for. Our emotion-driven chatbot is here to be your trusted companion, offering personalized interactions that adapt to your feelings in real-time. Whether you're seeking comfort, encouragement, or just someone to listen, our chatbot responds to your emotional needs with empathy and care.
+                </p>
+                <p>
+                    Designed to recognize and understand your emotions, our chatbot provides tailored support that helps you navigate your emotional journey. With every interaction, it learns more about you, ensuring that you're never alone in your experiences. Let our chatbot be your guide to a happier, healthier emotional life.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 BHAVANA Bot. All rights reserved.</p>
+            <p>Contact us at <a href="mailto:support@bhavanabot.com">support@bhavanabot.com</a></p>
+        </div>
+    </footer>
+
+    <style>
+
+        /* Reset some basic styles */
+        body, h1, p, ul, li {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+       /* Welcome Heading */
+h1 {
+    font-size: 48px;
+    background: linear-gradient(90deg, #34d5ff, #ff7a7a);
+    -webkit-background-clip: text; /* For WebKit browsers */
+    background-clip: text; /* Standard property */
+    color: transparent; /* Makes the text color transparent */
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    animation: textGlow 1.5s ease-in-out infinite alternate;
+    padding: 20px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+h1:hover {
+    box-shadow: 0 4px 15px rgba(52, 213, 255, 0.5), 0 0 20px rgba(255, 122, 122, 0.5);
+    transform: translateY(-5px);
+}
+
+
+        /* Video Background */
+        .video-background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Gradient Overlay */
+        .gradient-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.185), rgba(0, 0, 0, 0.9));
+            z-index: -1;
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.1s ease-in-out;
+        }
+
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar li {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #007BFF;
+        }
+
+        /* Dropdown menu for the About section */
+        .navbar ul ul {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            top: 35px;
+            list-style: none;
+            padding: 10px;
+            min-width: 180px;
+        }
+
+        .navbar ul ul li {
+            margin: 0;
+        }
+
+        .navbar ul li:hover > ul {
+            display: block;
+        }
+
+        /* Main Content */
+        .content {
+            margin-top: 100px;
+            padding: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            color: #fff;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(38, 33, 109, 0.7), 
+                        0 8px 16px rgba(76, 173, 252, 0.2) inset;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+            padding: 40px;
+            max-width: 1000px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-content {
+            width: 40%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .moving-gif {
+            width: 100%;
+            height: auto;
+            animation: moveGif 2s ease-in-out infinite, 
+                        upDown 3s ease-in-out infinite, 
+                        rotateGif 3s linear infinite;
+        }
+
+        @keyframes moveGif {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(10px);
+            }
+        }
+
+        @keyframes upDown {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes rotateGif {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        .text-content {
+            padding: 40px;
+            width: 60%;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            margin-left: -20px;
+            position: relative;
+        }
+
+        .text-content h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .text-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            font-size: 18px;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home - BHAVANA Bot</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+    
+        <!-- Video Background -->
+        <div class="video-background-container">
+            <video autoplay muted loop>
+                <source src="{{ url_for('static', filename='images/Dark Background Web.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    
+        <!-- Gradient Overlay -->
+        <div class="gradient-overlay"></div>
+    
+        <!-- Navbar -->
+        <header>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="BHAVANA Bot" class="logo">
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li>
+                        <a href="/about">About</a>
+                        <ul>
+                            <li><a href="#mission">Our Mission</a></li>
+                            <li><a href="#team">Our Team</a></li>
+                            <li><a href="#feedback">Feedback</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/bhavana">Try Bhavana</a></li>
+                    <li><a href="/self_assessment">Self Assessment</a></li>
+                    <li><a href="/articles">Articles</a></li>
+                    {% if 'username' in session %}
+                        <li><a href="/logout">Logout</a></li>
+                    {% else %}
+                        <li><a href="/login_signup">Login</a></li>
+                    {% endif %}
+                </ul>
+            </nav>   
+        </header>
+    
+
+    <!-- Heading and Subheading -->
+    <section class="heading-section">
+        <h1 class="main-heading">Most Read Articles</h1>
+        <p class="sub-heading">Take control of your mental health with our clinically vetted blogs and articles</p>
+    </section>
+
+    <!-- Articles Container -->
+    <div class="articles-container">
+        <!-- Article Card 1-->
+        <div class="article-card">
+            <a href="https://www.amahahealth.com/blog/the-impact-of-obsessive-compulsive-personality-disorder-on-relationships-and-daily-life/?pageName=resources_article&fromSpotlight=true&source=topnav" target="_blank">
+                <div class="article-image" style="background-image: url({{ url_for('static', filename='images/articles/Article-1.jpg') }});">
+                    <h2 class="article-title">The Impact of Obsessive-Compulsive Personality Disorder on Relationships and Daily Life</h2>
+                </div>
+                <p class="article-content">Individuals with OCPD may have difficulty in forming and maintaining relationships due to their perfectionist tendencies. They may have unrealistic expectations of themselves and others, which can lead to conflict and disappointment. For example, they may become upset if their partner is not as punctual or organised as they are, or if their partner does not adhere to their strict standards of cleanliness.
+
+                    Individuals with OCPD may also struggle with emotional intimacy, as they may find it difficult to express their feelings and connect with their partner on a deeper level. This can lead to feelings of loneliness and isolation, as well as problems in forming and maintaining close relationships.
+                    
+                    In addition, individuals with OCPD may be inflexible in their thinking and unwilling to compromise, which can also impact their relationships......</p>
+            
+            </a>
+        </div>
+
+        <!-- Article Card 2-->
+        <div class="article-card">
+            <a href="https://www.amahahealth.com/blog/the-human-touch-in-therapy-will-ai-replace-therapists/?pageName=resources_article&fromSpotlight=true&source=topnav" target="_blank">
+                <div class="article-image" style="background-image: url({{ url_for('static', filename='images/articles/Article-2.jpg') }});">
+                    <h2 class="article-title">The “Human” Touch in Therapy—Will AI Bots Like ChatGPT Replace Therapists?</h2>
+                </div>
+                <p class="article-content">Forbes reckons that the AI revolution is closer than you think—and that is very true. ChatGPT was released back in November 30th, 2022, and it has pretty much taken the world by storm. Suddenly, we have people questioning the longevity of their careers and using this nifty little tool to write stories, create strategy, and so much more. 
+
+                    ChatGPT is a trailblazer in a lot of ways. It can emulate human responses pretty well. The model can answer follow-up questions, correct its mistakes, give you answers to very open-ended questions, and so on. The responses feel pretty human too, if you ask it a question like “I feel very down right now”, the response is: 
+                    
+                    “I'm sorry to hear that you're feeling low. If you're comfortable sharing, would you like to talk about what's been causing you to feel this way? It's important to take the time to address and process difficult emotions in order to move through them.....</p>
+            </a>
+        </div>
+        
+        <!-- Article Cards 3 -->
+        <div class="article-card">
+            <a href="https://www.amahahealth.com/blog/what-to-expect-from-a-psychiatric-consultation/?pageName=resources_article&fromSpotlight=true&source=topnav" target="_blank">
+             
+                <div class="article-image" style="background-image: url({{ url_for('static', filename='images/articles/Article-3.jpg') }});">
+                    <h2 class="article-title">What To Expect From a Psychiatric Consultation</h2>
+                </div>
+                <p class="article-content">In order to arrive at the right diagnosis for your concerns, your psychiatrist may ask you a series of questions and may dig deep into them as well. 
+
+                    This can include details about your daily routine, how you have been feeling over the last few weeks or months, your immediate living environment, your close relationships, the kind of thoughts you have, sexual history, interests, your work history and why you have chosen to seek treatment. 
+                    
+                    Once you have answered these questions, be assured that your psychiatrist will guide the treatment plan and decide the exact kind of medication that you may need.....</p>
+            </a>
+        </div>
+
+        <!-- Article Cards 4 -->
+        <div class="article-card">
+            <a href="https://www.amahahealth.com/blog/the-role-of-therapy-in-managing-personality-disorders/?pageName=resources_article&fromSpotlight=true&source=topnav" target="_blank">
+             
+                <div class="article-image" style="background-image: url({{ url_for('static', filename='images/articles/Article-4.jpg') }});">
+                    <h2 class="article-title">The Role of Therapy in Managing Personality Disorders</h2>
+                </div>
+                <p class="article-content">The first step to selecting the correct type of therapy is diagnosing the condition. The Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition (DSM-5) has all the criteria for diagnostic symptoms for each personality disorder. It is used by doctors and mental health professionals to help people understand what they are going through and find out the exact diagnosis.
+
+                    The next step is to know the severity of your condition. The treatment plan suggested by your therapist or psychiatrist can vary depending on the type and severity of your personality disorder.  
+                    
+                    Among the many types of psychotherapy options, some have shown effectiveness in the treatment of personality disorders....</p>
+            </a>
+        </div>
+        
+        <!-- Article Cards 5 -->
+        <div class="article-card">
+            <a href="https://www.amahahealth.com/blog/mental-health-union-budget/?pageName=resources_article&source=topnav" target="_blank">
+             
+                <div class="article-image" style="background-image: url({{ url_for('static', filename='images/articles/Article-5.jpg') }});">
+                    <h2 class="article-title">Does India's Mental Health Funding Match Its Needs?</h2>
+                </div>
+                <p class="article-content">Mental health is no longer a taboo subject but a recognised crisis with far-reaching consequences. It impacts not only the individual's well-being but also the nation's prolificacy and economic growth. The economic toll of this crisis is staggering. Lost productivity, increased healthcare costs, and the ripple effects on families and communities paint a grim picture. Yet, the budget allocation for mental health remains a trivial sum, a stark contrast to the enormity of the problem. This disparity is a national indictment, a reflection of our society’s priorities, or lack thereof. While policies like the Mental Healthcare Act of 2017 represent a significant step forward, the gulf between action and intent seems glaring. 
+
+                    This article will analyse the connection between India's stated priorities and the budgetary allocations for mental health in the 2024-25 Union Budget.s....</p>
+            </a>
+        </div>
+
+        <!-- Article Cards  6-->
+        <div class="article-card">
+            <a href="https://www.amahahealth.com/blog/the-connection-between-burnout-and-mental-health/?pageName=resources_article&source=topnav" target="_blank">
+             
+                <div class="article-image" style="background-image: url('{{ url_for('static', filename='images/logo.png') }}');">
+                    <h2 class="article-title">The Connection Between Employee Burnout and Mental Health</h2>
+                </div>
+                <p class="article-content">Originating in the 1970s, Freudenberger described burnout as the state of being burned out as “becoming exhausted by making excessive demands on energy, strength, or resources” in the workplace. The term burnout has been carefully studied and while scientists still haven’t termed it a ‘mental health disorder’, it has become a significant concern for mental health and well-being. The World Health Organization (WHO) has now included burnout in its International Classification of Diseases, describing it as “a syndrome conceptualised as resulting from chronic workplace stress that has not been successfully managed.”
+
+                    Burnout goes much deeper than mere tiredness, stress or fatigue. A person might feel hopeless and might just feel checked out with work and everyday tasks. Burnout is a feeling of complete exhaustion, emotional blunting, frustration, anger and the inability to take effort or interest in any given task. 
+                    
+                    For example, imagine an executive working for a fast-paced company. They are constantly under pressure to meet strict deadlines and attend numerous meetings...</p>
+            </a>
+        </div>
+
+        <!-- Article Cards  7-->
+        <div class="article-card">
+            <a href="https://www.amahahealth.com/blog/burnout-vs-stress-what-is-the-difference-and-how-to-address-them/?pageName=resources_article&source=topnav" target="_blank">
+             
+                <div class="article-image" style="background-image: url({{ url_for('static', filename='images/articles/Article-7.jpg') }});">
+                    <h2 class="article-title">Burnout vs. Stress: What's the Difference and How to Address Them</h2>
+                </div>
+                <p class="article-content">Stress is something that comes and goes. It is our body’s emotional response to any event that is unfamiliar, causes discomfort, is adversely pressurising/demanding, or requires too much cognitive strength. Workplace stress arises due to heavy workloads, tight deadlines, lack of control, and conflicts with colleagues or superiors. Common symptoms of severe stress can look like fatigue, irritability, difficulty concentrating, and even physical ailments such as headaches or insomnia.
+
+                    Stress is often perceived as a negative emotion but can also have an upside. Stress makes us feel too many emotions, we tend to put in too much effort...</p>
+            </a>
+     </div>
+
+        
+        
+
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 BHAVANA Bot. All rights reserved.</p>
+            <p>Contact us at <a href="mailto:support@bhavanabot.com">support@bhavanabot.com</a></p>
+        </div>
+    <script src="script.js"></script>
+    
+    </footer>
+    <style>
+        /* Ensure the body background and general styling */
+body {
+    background: #1e1e1e;
+    color: #f5f5f5;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fixed Navbar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    height: 80px; /* Set height for the navbar */
+}
+
+/* Heading Section */
+.heading-section {
+    margin-top: 100px; /* Ensure it's below the fixed header */
+    padding: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.heading-section .main-heading {
+    color: #34d5ff;
+    margin-bottom: 10px;
+    font-size: 36px;
+}
+
+.heading-section .sub-heading {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+/* Articles Container */
+.articles-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Article Card */
+.article-card {
+    position: relative;
+    background-color: #050e113f;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 500px;
+    height: 500px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    transform: translateY(20px);
+    opacity: 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.article-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #00000050, #1a73e80c);
+    z-index: -1;
+    filter: blur(20px);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.article-card:hover::before {
+    transform: scale(1.1);
+}
+
+.article-card:hover {
+    transform: scale(1.05) rotateX(10deg) rotateY(10deg);
+    box-shadow: 20px 40px 40px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(10, 10, 10, 0.2);
+}
+
+.article-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.article-card:hover .article-image {
+    transform: scale(1.1);
+}
+
+.article-title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin: 0;
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    border-radius: 4px;
+    transition: text-shadow 0.3s;
+}
+
+.article-card:hover .article-title {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.article-content {
+    padding: 15px;
+    color: #fff3f3; 
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+/* Footer Styling */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #34d5ff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Additional Styles */
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.info {
+    text-align: center;
+    padding: 80px 20px 20px;
+    background-color: #f4f4f4;
+}
+
+.info img {
+    max-width: 100px;
+}
+
+.info h1 {
+    margin: 10px 0;
+}
+
+.info a {
+    color: #007bff1f;
+    text-decoration: none;
+}
+
+.info a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+    // Add this script just before the closing </body> tag
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background: #222;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #ddd;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option {
+            margin-bottom: 5px;
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .result, .doctors, .thankyou {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #444;
+            border-radius: 4px;
+        }
+
+        .result {
+            background: #333;
+        }
+
+        .doctors {
+            background: #222;
+        }
+
+        .thankyou {
+            background: #444;
+        }
+
+        .doctor-item {
+            margin-bottom: 15px;
+        }
+
+        .doctor-item a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+
+        .doctor-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Depression Questionnaire</h1>
+        <form id="questionnaire-form">
+            <div class="question">
+                <label for="q1">1. I feel overwhelmingly sad at times</label>
+                <select id="q1" name="q1">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q2">2. When I think of the future I feel hopeless</label>
+                <select id="q2" name="q2">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q3">3. I feel like a complete failure</label>
+                <select id="q3" name="q3">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q4">4. I get a lot of satisfaction/joy from doing things</label>
+                <select id="q4" name="q4">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q5">5. I feel guilty about something most of the time</label>
+                <select id="q5" name="q5">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q6">6. I feel like I am being punished</label>
+                <select id="q6" name="q6">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q7">7. I feel disappointed (even disgusted) with myself</label>
+                <select id="q7" name="q7">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q8">8. The bad things in my life aren’t all my fault</label>
+                <select id="q8" name="q8">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q9">9. I am often on the brink of tears or cry</label>
+                <select id="q9" name="q9">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q10">10. I feel irritated and annoyed by things in my life</label>
+                <select id="q10" name="q10">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q11">11. I am very interested in other people’s lives and like to listen to them</label>
+                <select id="q11" name="q11">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q12">12. I find it easy to make decisions, big and small</label>
+                <select id="q12" name="q12">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q13">13. I think I am unattractive or ugly</label>
+                <select id="q13" name="q13">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q14">14. I find it really hard to do anything, especially work</label>
+                <select id="q14" name="q14">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q15">15. My sleep patterns have been really disrupted</label>
+                <select id="q15" name="q15">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q16">16. I am so tired I don’t have the energy to do anything</label>
+                <select id="q16" name="q16">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q17">17. My appetite has changed a lot</label>
+                <select id="q17" name="q17">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q18">18. I have lost a lot of weight</label>
+                <select id="q18" name="q18">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q19">19.I am very concerned, even preoccupied, with my physical health</label>
+                <select id="q19" name="q19">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q20">20. I am not interested in sexual relations at all</label>
+                <select id="q20" name="q20">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <div class="question">
+                <label for="q21">21. I have thought about ending my life</label>
+                <select id="q21" name="q21">
+                    <option value="a">Definitely agree</option>
+                    <option value="b">Slightly agree</option>
+                    <option value="c">Slightly disagree</option>
+                    <option value="d">Definitely disagree</option>
+                </select>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result" class="result"></div>
+        <div id="doctors" class="doctors" style="display: none;">
+            <h2>Recommended Doctors</h2>
+            <div class="doctor-item">
+                <p><strong>Dr. Usha Sathish</strong></p>
+                <p>Phone: 911141193943</p>
+                <p><a href="https://maps.app.goo.gl/A9e8uiPSPpTA16Tz9" target="_blank">Location</a></p>
+                <p>Experience: 1+ years</p>
+            </div>
+            <div class="doctor-item">
+                <p><strong>Dr Venkatesh Babu G M</strong></p>
+                <p>Phone: 918071910148</p>
+                <p><a href="https://maps.app.goo.gl/EB36Wz5uZsm8FWMXA" target="_blank">Location</a></p>
+                <p>Experience: 18 years</p>
+            </div>
+            <div class="doctor-item">
+                <p><strong>Dr. Anunka Mondal</strong></p>
+                <p>Phone: 918045685300</p>
+                <p><a href="https://maps.app.goo.gl/EB36Wz5uZsm8FWMXA" target="_blank">Location</a></p>
+                <p>Experience: 5 years</p>
+            </div>
+            <div class="doctor-item">
+                <p><strong>Dr Ravi Prakash</strong></p>
+                <p>Phone: 08071909298</p>
+                <p><a href="https://maps.app.goo.gl/QgeccTmRxFzzikFp9" target="_blank">Location</a></p>
+                <p>Experience: 20 years</p>
+            </div>
+        </div>
+        <div id="thankyou" class="thankyou" style="display: none;">
+            <h2>Thank You!</h2>
+            <p>Your responses have been recorded.</p>
+        </div>
+    </div>
+
+    <script>
+        const scoring = {
+            'a': 0,
+            'b': 1,
+            'c': 2,
+            'd': 3,
+            'e': 4
+        };
+
+        const anxietyLevels = [
+            { level: "Little/None", min: 0, max: 10 },
+            { level: "Mild", min: 11, max: 16 },
+            { level: "Moderate", min: 17, max: 20 },
+            { level: "High", min: 21, max: 30 },
+            { level: "High to Sevre", min: 31, max: 63 }
+        ];
+
+        document.getElementById('questionnaire-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let totalScore = 0;
+
+            for (let i = 1; i <= 10; i++) {
+                const selectedOption = document.getElementById('q' + i).value;
+                totalScore += scoring[selectedOption];
+            }
+
+            let depressionLevel = "";
+            for (let level of depressionLevels) {
+                if (totalScore >= level.min && totalScore <= level.max) {
+                    depressionLevel = level.level;
+                    break;
+                }
+            }
+
+            document.getElementById('result').textContent = `Your depression level is: ${anxietyLevel}. Your total score is: ${totalScore}`;
+
+            if (depressionLevel !== "Little/None") {
+                document.getElementById('doctors').style.display = 'block';
+            } else {
+                document.getElementById('doctors').style.display = 'none';
+            }
+
+            document.getElementById('thankyou').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
